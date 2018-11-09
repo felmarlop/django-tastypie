@@ -1778,8 +1778,10 @@ class BaseModelResource(Resource):
             result = fields.FloatField
         elif internal_type in ('DecimalField',):
             result = fields.DecimalField
-        elif internal_type in ('IntegerField', 'PositiveIntegerField', 'PositiveSmallIntegerField', 'SmallIntegerField', 'AutoField'):
+        elif internal_type in ('IntegerField', 'PositiveIntegerField', 'PositiveSmallIntegerField', 'SmallIntegerField'):
             result = fields.IntegerField
+        elif internal_type in ('AutoField'):
+            result = fields.CharField
         elif internal_type in ('FileField', 'ImageField'):
             result = fields.FileField
         elif internal_type == 'TimeField':
